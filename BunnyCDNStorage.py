@@ -21,14 +21,14 @@ class CDNConnector():
             self.base_url='https://'+storage_zone_region+'.storage.bunnycdn.com/'+storage_zone+'/'
         
 
-    def get_storaged_objects(self,path):
+    def get_storaged_objects(self,cdn_path):
         """
             returns files and folders stored information stored in CDN (json data)\n
             path=folder path in cdn\n
         """
-        request_url=self.base_url+path
+        request_url=self.base_url+cdn_path
 
-        if(path[-1]!='/'):
+        if(cdn_path[-1]!='/'):
             request_url=request_url+'/'
 
         response=requests.request('GET',request_url,headers=self.headers)
