@@ -70,7 +70,7 @@ class CDNConnector():
     def upload_file(self,cdn_path,file_name,file_path=None):
         """
             uploads your files to cdn server \n
-            cdn_path - path to save on cdn (do not add file name) \n
+            cdn_path - directory to save in CDN \n
             filename - name to save with cdn \n
             file_path - locally stored file path, 
             if none it will look for file in present working directory
