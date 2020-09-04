@@ -32,4 +32,4 @@ print(cdn_connector.get_storaged_objects('/'))
 ```
 Gives you information about the files stored at your Root directory. <br>
 
-<b>Note :<b> We recomend in cdn path use '/' at the end for directories
+<b>Note :</b> We recomend in cdn_path use '/' at the end for directories
