@@ -77,18 +77,16 @@ class CDNConnector():
         """
         if(file_path==None):
             file_path=file_name
-
-        with open(file_path,'rb') as file:
-            file_data=file.read()
         
         if(cdn_path[-1]=='/'):
             cdn_path=cdn_path[:-1]
 
         request_url=self.base_url+cdn_path+'/'+file_name
 
-        response=requests.request("PUT",request_url,data=file_data,headers=self.headers)
+        with open(file_path, 'rb') as file:
+            response=requests.request("PUT",request_url,data=file,headers=self.headers)
 
-        return(response.json())
+            return(response.json())
 
 
 
