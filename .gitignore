@@ -130,3 +130,6 @@ dmypy.json
 
 # main running file
 main.py
+
+# .idea
+.idea
