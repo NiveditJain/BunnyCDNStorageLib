@@ -1,4 +1,5 @@
 import requests
+from urllib import parse
 
 class CDNConnector():
 
@@ -26,7 +27,7 @@ class CDNConnector():
             returns files and folders stored information stored in CDN (json data)\n
             path=folder path in cdn\n
         """
-        request_url=self.base_url+cdn_path
+        request_url=self.base_url+parse.quote(cdn_path)
 
         if(cdn_path[-1]!='/'):
             request_url=request_url+'/'
@@ -50,7 +51,7 @@ class CDNConnector():
 
         filename=cdn_path.split('/')[-1]
 
-        request_url=self.base_url+cdn_path
+        request_url=self.base_url+parse.quote(cdn_path)
         response = requests.request("GET", request_url, headers=self.headers)
         
         if(response.status_code==404):
@@ -84,7 +85,7 @@ class CDNConnector():
         if(cdn_path[-1]=='/'):
             cdn_path=cdn_path[:-1]
 
-        request_url=self.base_url+cdn_path+'/'+file_name
+        request_url=self.base_url+cdn_path+'/'+parse.quote(file_name)
 
         response=requests.request("PUT",request_url,data=file_data,headers=self.headers)
 
@@ -98,6 +99,6 @@ class CDNConnector():
             cdn_dir=complete path including file on CDN \n
             for directory make sure that path ends with /
         """
-        request_url=self.base_url+cdn_dir
+        request_url=self.base_url+parse.quote(cdn_dir)
         response=requests.request('DELETE',request_url,headers=self.headers)
         return(response.json())
