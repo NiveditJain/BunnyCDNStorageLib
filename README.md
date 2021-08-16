@@ -1,3 +1,5 @@
+# NOTE : MOVED TO <a href="https://github.com/mathrithms/BunnyCDN-Python-Lib"> https://github.com/mathrithms/BunnyCDN-Python-Lib </a>
+
 # BunnyCDNStorageLib
 Python Lib to connect to BunnyCDNStorage
 
